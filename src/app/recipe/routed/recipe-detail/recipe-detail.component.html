@@ -15,11 +15,11 @@
             {{ingredient.name}}
           </p>
       </div>
-      <!-- <div *ngFor="let instrcution of recipe.instructions | strToArray">
+      <div *ngFor="let instruction of recipe.instructions ">
           <p>
-            {{instrcution}}
+            {{instruction}}
           </p>
-      </div> -->
+      </div>
     <p *ngIf="show">
       {{recipe.description}}
     </p>
