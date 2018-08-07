@@ -1,0 +1,17 @@
+<div class="example-container">
+    <mat-form-field>
+      <input matInput   placeholder="name" [(ngModel)]="recipe.name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Url" [(ngModel)]="recipe.picture">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <input matInput placeholder="description" [(ngModel)]="recipe.description">
+    </mat-form-field>
+
+    <button mat-button (click) ="add()" >ADD THIS RECIPE!!!!!!</button>
+
+  </div>

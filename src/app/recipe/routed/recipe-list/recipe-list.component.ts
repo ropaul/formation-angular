@@ -28,4 +28,9 @@ ngOnInit(): void {
 
 
 
+handleDelete(recipe: Recipe) {
+  const index_of = this.recipes.indexOf(recipe);
+  this.recipes.splice(index_of, 1);
+}
+
 }

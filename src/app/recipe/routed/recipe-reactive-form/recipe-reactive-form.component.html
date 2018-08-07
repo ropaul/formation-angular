@@ -1,0 +1,18 @@
+  <form [formGroup]="recipeForm" (ngSubmit)="add()">
+
+    <mat-form-field>
+        <input matInput    type="text" formControlName="name" >
+   </mat-form-field>
+
+   <mat-form-field>
+        <input matInput type="text" formControlName="picture">
+   </mat-form-field>
+
+
+  <mat-form-field>
+          <input matInput type="text" formControlName="description">
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!recipeForm.valid">Submit</button>
+
+    </form>

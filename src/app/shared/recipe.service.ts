@@ -21,12 +21,24 @@ export class RecipeService {
   ) { }
 
   getAllRecipe(): Observable<Recipe[]> {
-    // return this.httpClient.get<Recipe[]>(this.recipeUrl);
-    return of(MOCK_RECIPES);
+    return this.httpClient.get<Recipe[]>(this.recipeUrl);
+    // return of(MOCK_RECIPES);
   }
 
 getRecipeById(id: string): Observable<Recipe> {
   return this.httpClient.get<Recipe>(`${this.recipeUrl}/${id}`);
+}
+
+addRecipe(recipe: Recipe): Observable<Recipe> {
+  return this.httpClient.post<Recipe>(this.recipeUrl, recipe);
+}
+
+updateRecipe(recipe: Recipe): Observable<Recipe> {
+  return this.httpClient.patch<Recipe>(this.recipeUrl, recipe);
+}
+
+deleteRecipe(id: string): Observable<Recipe> {
+  return this.httpClient.delete<Recipe>(`${this.recipeUrl}/${id}`);
 }
 
 }

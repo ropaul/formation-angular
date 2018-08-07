@@ -11,15 +11,27 @@ import { RecipeModule } from '../recipe.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeOwerviewComponent } from './recipe-owerview/recipe-owerview.component';
 import { RouterModule } from '@angular/router';
+import { RecipeAddComponent } from './recipe-add/recipe-add.component';
+import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
+import { RecipeReactiveFormComponent } from './recipe-reactive-form/recipe-reactive-form.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    // FormBuilder,
+    // Validators
+
+
   ],
-  declarations: [ RecipeListComponent, RecipeDetailComponent, StrToArrayPipe, RecipeOwerviewComponent
+  declarations: [ RecipeListComponent, RecipeDetailComponent,
+     StrToArrayPipe, RecipeOwerviewComponent, RecipeAddComponent, RecipeReactiveFormComponent
   ]
 })
 export class RecipeRoutedModule { }

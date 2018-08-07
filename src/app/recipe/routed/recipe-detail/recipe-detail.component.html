@@ -1,25 +1,30 @@
-<mat-card class="example-card">
-    <button mat-button (click) = switchMode() >switch mode</button>
+<mat-card class="example-card" *ngIf="recipe">
+    <button mat-button (click) = switchMode()  >switch mode</button>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{recipe.name}}</mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
 
   </mat-card-header>
-  <img mat-card-image src={{recipe.picture}} alt= {{recipe.name}}>
+  <img mat-card-image [src]="recipe.picture">
   <mat-card-content>
 
-      <div *ngFor="let ingredient of recipe.ingredients">
-
+    <ng-template [ngIf]="recipe?.ingredients">
+      <div *ngFor="let ingredient of recipe?.ingredients" >
         <p>
             {{ingredient.name}}
           </p>
       </div>
-      <div *ngFor="let instruction of recipe.instructions ">
+    </ng-template>
+
+    <ng-template [ngIf]="recipe?.instructions">
+      <div *ngFor="let instruction of recipe?.instructions | strToArray" class="e2e-expanded">
           <p>
             {{instruction}}
           </p>
       </div>
+
+    </ng-template>
     <p *ngIf="show">
       {{recipe.description}}
     </p>
@@ -27,12 +32,13 @@
 
   <mat-card-actions >
       <div *ngIf="listMode">
-        <button mat-button (click)=showDescription() [ngPlural]="show">
+        <button mat-button (click)=showDescription() [ngPlural]="show"  class="e2e-toggle-button">
           <ng-template ngPluralCase= "=false">Expand</ng-template>
           <ng-template ngPluralCase= "=true">Collapse</ng-template>
           </button>
 
         <button mat-button routerLink="/recipe/{{recipe.id}}" >show details</button>
+        <button mat-button (click)="handleDelete()" >delete</button>
   </div>
   </mat-card-actions>
 </mat-card>

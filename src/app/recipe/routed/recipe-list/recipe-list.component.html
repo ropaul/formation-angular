@@ -1,7 +1,9 @@
 
 <div  class="container">
 
-  <app-recipe-detail class="recipe-detail" *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-detail>
+  <app-recipe-detail class="recipe-detail" *ngFor="let recipe of recipes" [recipe]="recipe"
+  (delete)="handleDelete($event)" class="e2e-delete-event">
+  </app-recipe-detail>
 </div>
 
 
